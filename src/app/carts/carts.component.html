@@ -1,0 +1,31 @@
+<!-- carts.component.html -->
+<div class="cart-container">
+  <h1>Cart Items</h1>
+
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    <p>Your cart is empty😓🙄</p>
+    <img src="../../assets/cart-empty2.jpg" alt="" width="40%">
+    <div>
+    <button mat-button raised id="storeItemBtn" routerLink="">Go To Store</button>
+  </div>
+  </div>
+  <div *ngIf="cartItems.length > 0" class="cart-items">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="item.imageUrl" alt="{{ item.title }} {{ item.subtitle }}" class="item-image">
+      <div class="item-details">
+        <p class="item-name">{{ item.title }}</p>
+        <p class="item-name">{{ item.subtitle }}</p>
+
+        <p class="item-price">{{ item.price * item.quantity | currency:'INR':'symbol':'1.2-2' }}</p>
+        <div class="quantity-controls">
+          Quantity:
+          <button mat-button raised (click)="decreaseQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button mat-button raised (click)="increaseQuantity(item)">+</button>
+        </div>
+        <button mat-button raised id="removeItemBtn" (click)="removeFromCart(item)">Remove</button>
+        <button mat-button raised id="buyItemBtn" (click)="openDialog()">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>

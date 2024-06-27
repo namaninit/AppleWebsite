@@ -1,0 +1,17 @@
+<!-- iphone-details.component.html -->
+<div id="dialogboxphone">
+<h2 mat-dialog-title>{{ productDetails.subtitle }} Details</h2>
+<mat-dialog-content class="mat-typography">
+  <img [src]="productDetails.imageUrl" alt="{{ productDetails.title }}">
+  <p>{{ productDetails.title }} - {{ productDetails.subtitle }}  {{ productDetails.color }}</p>
+  <p>price -  ₹{{ productDetails.price | number }}</p>
+  <p>storage - {{ productDetails.storage}}</p>
+  <p>water-proof - {{ productDetails.waterproof}}</p>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+</div>

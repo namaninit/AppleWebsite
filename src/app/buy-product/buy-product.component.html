@@ -1,0 +1,25 @@
+<!-- buy-product.component.html -->
+
+<div *ngIf="cartItems.length > 0" class="cart-items">
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.imageUrl" alt="{{ item.title }}" class="item-image">
+    <div class="item-details">
+      <p class="item-name">{{ item.title }}</p>
+      <p class="item-price">{{ item.price | currency:'INR':'symbol':'1.2-2' }}</p>
+      <button mat-button raised id="removeItemBtn" (click)="removeFromCart(item)">Remove</button>
+    </div>
+  </div>
+
+  <div class="total-section">
+    <p>Total Value: {{ calculateTotal() | currency:'INR':'symbol':'1.2-2' }}</p>
+
+  
+    <ng-container>
+      <label for="discountInput">Get 10% Discount Use Coupon:</label>
+      <input type="text" id="discountInput" [(ngModel)]="couponCode" placeholder="Enter coupon code" />
+    </ng-container>
+    <button mat-button raised id="buyButton" (click)="apply()">Apply coupon</button>
+
+    <button mat-button raised id="buyButton"  (click)="openDialog()" routerLink="">Buy</button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="">
+    <mat-icon><img src="../../assets/logo.png" alt=""></mat-icon>
+  </button>
+  <span routerLink="" style="cursor: pointer;">Apple</span>
+  <span class="example-spacer">
+    <div class="links">
+      <a href="">iphone</a>
+      <a href="">ipads</a>
+      <a href="">Macbook</a>
+    </div>
+  </span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with overlaid badge" routerLink="cart">
+    <span [matBadge]="cartBadgeValue" matBadgeColor="warn">
+      <mat-icon>shopping_cart</mat-icon>
+    </span>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
